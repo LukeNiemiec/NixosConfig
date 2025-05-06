@@ -77,7 +77,6 @@
   users.users.box = {
    isNormalUser = true;
    extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
-   initialPassword = "@Amazon2693";
    packages = with pkgs; [
      tree
    ];
