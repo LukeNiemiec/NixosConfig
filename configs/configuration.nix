@@ -76,7 +76,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.box = {
    isNormalUser = true;
-   extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
+   extraGroups = [ "wheel" "audio" "wireshark" "dialout" ]; # Enable ‘sudo’ for the user.
    packages = with pkgs; [
      tree
    ];
@@ -85,7 +85,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+ environment.systemPackages = with pkgs; [
     vim 										# Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     qutebrowser									# browser
     onedrive    								# onedrive file sync
@@ -110,30 +110,86 @@
 	sqlite										# sql 
 	git											# git 
 	gh											# github cli
+	rtl-sdr
+	syncthing
+
+	conda
+	# python314Packages.pixelmatch
+	# python314Packages.osmnx
+	
+	
+
+	ghostscript_headless
+
+	avrdude
+	avra
+
+	monero-cli
+
+	xmrig
+
+	sox
 	
     nmap										# network mapper
-    wireshark									# protocol analyzer
+    etherape									# protocol analyzer
+    wireshark									
     exiftool									# image metadata analyzer
 
     zulu23										# java 23.0
-    python312									# python 3.12
-    python312Packages.pip 						# pip
+    
+    python313									# python 3.12
+	python313Packages.pip
+	# python314Packages.apycula
+	R
 
-    python312Packages.selenium					# headless browser functionality
+			
+    
   	geckodriver
   	firefox
- 
+  	arduino-cli
+  	arduino-ide
+ 	gimp										
+ 	imagemagick
+
+ 	hexpatch									# COMP206 
    
-	sway									    # desktop manager
+	sway									   # desktop manager
 	swaybg										# wallpaper manager
+	waypipe										# for allowing root to open GUI
+	
     brightnessctl								# brightness manager
     i3											# window manager 
 	wl-clipboard								# c/p manager
     iw											# networking manager
     pamixer										# audio manager
-    esptool										# esp32 flashing interface
+    # esptool										# esp32 interface
+    procyon										# java de-compiler
     
-    
+	calcurse									# command line calendar  
+	grim										
+	slurp  
+
+	espup #TEST
+	ninja
+	rustup
+	libvirt
+
+	grass
+
+	jmtpfs
+
+	html2pdf
+	gcc
+
+	mlocate
+	inetutils
+	termshot
+	net-tools
+	dnsutils
+	mtr
+	xyce
+	ngspice
+	irssi
   ];
 
 
