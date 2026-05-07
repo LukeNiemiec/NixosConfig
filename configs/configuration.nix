@@ -82,6 +82,44 @@
    ];
   };
 
+programs.bash = {
+  	enable = true;
+	# shell aliases
+  	shellAliases = {
+		# [ Commands ]
+		ls="ls -al --color=auto";
+		notes="micro notes.txt";
+		todo="micro TODO.txt";
+		backup="onedrive --sync --upload-only";
+		msdb1="bash /home/box/scripts/mountSDB1.sh";
+		umsdb1="bash /home/box/scripts/unmountSDB1.sh";
+		commit="bash /home/box/scripts/git_upload.sh";
+		uesp=". /home/box/export-esp.sh";
+		usenv="source /home/box/py-env/bin/activate";
+		aliasng="python /home/box/scripts/list_alias.py";
+		openlink="python /home/box/scripts/open_links.py";
+		wshark="sudo -E env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR WAYLAND_DISPLAY=$WAYLAND_DISPLAY wireshark";
+		mirror="bash /home/box/scripts/screenmirror.sh";
+		gulp="grim -g $(slurp) ~/Screenshots/out.png";
+		ethhost="sudo ip addr add 192.168.5.1/24 dev enp2s0";
+		pi="cd /home/box/Sync/RPI && sudo nix-shell";
+		avr_compile="avra traffic.asm";
+		avr_upload="avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -b 115200 -U flash:w:traffic.hex";
+		bridgelink="sh /home/box/scripts/GtoG.sh";
+		tablet="sudo nix-shell /home/box/scripts/Sync-Tablet.nix";
+		Rcomp="R CMD BATCH rfile.R && cat rfile.Rout";
+		
+		# [ Goto ]
+		school="clear && cd /home/box/Sync/School/Spring2026";
+		research="clear && cd /home/box/Sync/Research";
+		github="clear && cd /home/box/Sync/GitHub/";
+
+		# [ Nixos ]
+		rebuild="sudo nixos-rebuild switch";
+		clean="sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
+		fixboot="sudo nixos-rebuild --install-bootloader boot";
+  	};
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
